@@ -35,16 +35,16 @@ public class TlsSender implements ISender {
 
         try {
             Message message = new MimeMessage(session);
-            //от кого
+            //РѕС‚ РєРѕРіРѕ
             message.setFrom(new InternetAddress(username));
-            //кому
+            //РєРѕРјСѓ
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-            //Заголовок письма
+            //Р—Р°РіРѕР»РѕРІРѕРє РїРёСЃСЊРјР°
             message.setSubject(subject);
-            //Содержимое
+            //РЎРѕРґРµСЂР¶РёРјРѕРµ
             message.setText(text);
 
-            //Отправляем сообщение
+            //РћС‚РїСЂР°РІР»СЏРµРј СЃРѕРѕР±С‰РµРЅРёРµ
             Transport.send(message);
         } catch (MessagingException e) {
             throw new RuntimeException(e);

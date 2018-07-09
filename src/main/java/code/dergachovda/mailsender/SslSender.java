@@ -36,16 +36,16 @@ public class SslSender implements ISender {
 
         try {
             Message message = new MimeMessage(session);
-            //от кого
+            //РѕС‚ РєРѕРіРѕ
             message.setFrom(new InternetAddress(username));
-            //кому
+            //РєРѕРјСѓ
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-            //тема сообщения
+            //С‚РµРјР° СЃРѕРѕР±С‰РµРЅРёСЏ
             message.setSubject(subject);
-            //текст
+            //С‚РµРєСЃС‚
             message.setText(text);
 
-            //отправляем сообщение
+            //РѕС‚РїСЂР°РІР»СЏРµРј СЃРѕРѕР±С‰РµРЅРёРµ
             Transport.send(message);
         } catch (MessagingException e) {
             throw new RuntimeException(e);
